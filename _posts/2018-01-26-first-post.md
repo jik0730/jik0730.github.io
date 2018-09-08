@@ -3,20 +3,28 @@ title: "Welcome to Jekyll!"
 date: 2017-10-20 08:26:28 -0400
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Principle Component Analysis (PCA)
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Principle Component Analysis (PCA) is a basic technique for dimension reduction of data. PCA can be derived in various ways and the one we introduce here is maximum variance formulation. 
 
-Jekyll also offers powerful support for code snippets:
+Assume we are given 2-dimensional data. If we want to visualize data in 1 dimension, it would be reasonable to project the data to the direction (vector) where the variance of projected data maximizes in order to distinguish data points well.
 
-​```python
-def print_hi(name):
-  print("hello", name)
-print_hi('Tom')
-​```
+Assume we have a set of data points X=\{x_1, \cdots, x_N\} where x_i \in \mathbb{R}^d. Our objective is to find the directions that maximize the variance of projected data. Let u_1 be one of the directions. Then the projected data would be
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+$$U_1 = \{u_1^Tx_1, \cdots, u_N^Tx_N\}.$$
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+The variance of the projected data U_1 is going to be
+
+\sigma_1^2 = \frac{1}{N}\sum_{n=1}^N (u_1^Tx_i - u_1^T\bar{x}) = u_1^TSu_1
+
+where \bar{x} = \frac{1}{N}\sum_{n=1}^Nx_n and S=\frac{1}{N}\sum_{n=1}^N(x_n-\bar{x})(x_n-\bar{x})^T. We also constrain u_1 to be u_1^Tu_1=1 since we only need the direction of the projected space. We optimize the variance formulation with the constraint by using Lagrange multiplier. We define the Lagrangian function as follow.
+
+\mathcal{L}(u_1, \lambda_1) = u_1^TSu_1 + \lambda(1-u_1^Tu_1)
+
+After solving the objective function by setting the gradient to zero, we have the following well-known equation.
+
+Su_1 = \lambda_1u_1
+
+The problem of finding the direction which makes the projected data has largest variance turns out to be equal to finding the eigenvector which has the largest eigenvalue since \lambda_1 = u_1^TSu_1. If we want to have multiple directions, the rest of the directions can be found by ordering magnitude of eigenvalues.
+
+
