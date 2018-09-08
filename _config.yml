@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Ingyo Chung"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "ML Beginner."
+  bio              : "Machine Learning (ML) Beginner."
   location         : "Daejeon, KR"
   email            : "jik0730@gmail.com"
   uri              :
@@ -111,9 +111,9 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         : "https://www.facebook.com/inkyoJJ"
+  facebook         : "inkyoJJ"
   foursquare       :
-  github           : 
+  github           : "jik0730"
   gitlab           :
   google_plus      :
   keybase          :
