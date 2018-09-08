@@ -104,16 +104,16 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "ML Beginner."
   location         : "Daejeon, KR"
-  email            :
+  email            : "jik0730@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "https://www.facebook.com/inkyoJJ"
   foursquare       :
-  github           :
+  github           : 
   gitlab           :
   google_plus      :
   keybase          :
