@@ -1,30 +1,28 @@
 ---
-title: "Welcome to Jekyll!"
+title: "Principle Component Analysis (PCA)"
 date: 2017-10-20 08:26:28 -0400
-categories: jekyll update
+categories: PCA dimension reduction
 ---
-Principle Component Analysis (PCA)
-
 Principle Component Analysis (PCA) is a basic technique for dimension reduction of data. PCA can be derived in various ways and the one we introduce here is maximum variance formulation. 
 
 Assume we are given 2-dimensional data. If we want to visualize data in 1 dimension, it would be reasonable to project the data to the direction (vector) where the variance of projected data maximizes in order to distinguish data points well.
 
-Assume we have a set of data points X=\{x_1, \cdots, x_N\} where x_i \in \mathbb{R}^d. Our objective is to find the directions that maximize the variance of projected data. Let u_1 be one of the directions. Then the projected data would be
+Assume we have a set of data points $$ X=\{x_1, \cdots, x_N\} $$ where $$ x_i \in \mathbb{R}^d $$. Our objective is to find the directions that maximize the variance of projected data. Let $$ u_1 $$ be one of the directions. Then the projected data would be
 
-$$U_1 = \{u_1^Tx_1, \cdots, u_N^Tx_N\}.$$
+$$ U_1 = \{u_1^Tx_1, \cdots, u_N^Tx_N\} \,. $$
 
-The variance of the projected data U_1 is going to be
+The variance of the projected data $$ U_1 $$ is going to be
 
-\sigma_1^2 = \frac{1}{N}\sum_{n=1}^N (u_1^Tx_i - u_1^T\bar{x}) = u_1^TSu_1
+$$ \sigma_1^2 = \frac{1}{N}\sum_{n=1}^N (u_1^Tx_i - u_1^T\bar{x}) = u_1^TSu_1 $$
 
-where \bar{x} = \frac{1}{N}\sum_{n=1}^Nx_n and S=\frac{1}{N}\sum_{n=1}^N(x_n-\bar{x})(x_n-\bar{x})^T. We also constrain u_1 to be u_1^Tu_1=1 since we only need the direction of the projected space. We optimize the variance formulation with the constraint by using Lagrange multiplier. We define the Lagrangian function as follow.
+where $$ \bar{x} = \frac{1}{N}\sum_{n=1}^Nx_n $$ and $$ S=\frac{1}{N}\sum_{n=1}^N(x_n-\bar{x})(x_n-\bar{x})^T $$. We also constrain $$ u_1 $$ to be $$ u_1^Tu_1=1 $$ since we only need the direction of the projected space. We optimize the variance formulation with the constraint by using Lagrange multiplier. We define the Lagrangian function as follow.
 
-\mathcal{L}(u_1, \lambda_1) = u_1^TSu_1 + \lambda(1-u_1^Tu_1)
+$$ \mathcal{L}(u_1, \lambda_1) = u_1^TSu_1 + \lambda(1-u_1^Tu_1) $$
 
 After solving the objective function by setting the gradient to zero, we have the following well-known equation.
 
-Su_1 = \lambda_1u_1
+$$ Su_1 = \lambda_1u_1 $$
 
-The problem of finding the direction which makes the projected data has largest variance turns out to be equal to finding the eigenvector which has the largest eigenvalue since \lambda_1 = u_1^TSu_1. If we want to have multiple directions, the rest of the directions can be found by ordering magnitude of eigenvalues.
+The problem of finding the direction which makes the projected data has largest variance turns out to be equal to finding the eigenvector which has the largest eigenvalue since $$ \lambda_1 = u_1^TSu_1 $$. If we want to have multiple directions, the rest of the directions can be found by ordering magnitude of eigenvalues.
 
 
